@@ -1,5 +1,8 @@
 
 const $btnRoll = $('#btn-roll');
+const $btnNewGame = $('#btn-new-game');
+
+
 const $playerDiceOne = $('#player-dice-1');
 const $playerDiceTwo = $('#player-dice-2');
 const $computerDiceOne = $('#computer-dice-1');
@@ -11,17 +14,17 @@ const $playerTotalScore = $('#player-total-score');
 const $computerScoreThisRound = $('#computer-score-this-rnd');
 const $computerTotalScore = $('#computer-total-score');
 
+// OBJECT ROUTE BELOW...
 
-// die Object 
-/*
 class Die {
     constructor(){
-        
+        this.currentValue = 1;
     }
 
     roll(){
         let diceRollValue = Math.floor(Math.random() * 6);
-        //console.log(diceRollValue)
+        this.currentValue++;
+        //console.log(diceRollValue);
         return diceRollValue;
     
     }
@@ -29,11 +32,40 @@ class Die {
 }
 
 
-$btnRoll.click(new Die().rollDice);
-*/
+$btnRoll.click(updateDisplay);
+$btnNewGame.click(function(){
+    location.reload();
 
+});
+
+function updateDisplay(){
+    const firstRoll = new Die().roll
+    $playerDiceOne.html(firstRoll);
+    $playerDiceTwo.html( firstRoll);
+    $computerDiceOne.html(firstRoll);
+    $computerDiceTwo.html(firstRoll);
+
+    /*
+    $playerDiceOne.html(new Die().roll);
+    $playerDiceTwo.html(new Die().roll);
+    $computerDiceOne.html(new Die().roll);
+    $computerDiceTwo.html(new Die().roll);
+    */
+    
+
+}
+
+
+
+// NON OBJECT ROUTE BELOW...
+
+/* 
 
 $btnRoll.click(rollDice);
+$btnNewGame.click(function(){
+    location.reload();
+
+});
 
 
 playerArray = [ ];
@@ -80,5 +112,7 @@ function rollDice(){
 
    
 }
+
+*/
 
 
