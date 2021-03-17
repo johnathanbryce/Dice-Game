@@ -4,6 +4,7 @@ const $btnRoll = $('#btn-roll');
 const $btnNewGame = $('#btn-new-game');
 const $btnRules = $('#btn-rules');
 const $btnClose = $('#btn-close');
+const $btnCloseEndGame = $('#btn-close-end-game');
 
 // player dice
 const $playerDiceOne = $('#player-dice-1');
@@ -16,6 +17,8 @@ const $playerScoreThisRound = $('#player-score-this-rnd');
 const $playerTotalScore = $('#player-total-score');
 const $computerScoreThisRound = $('#computer-score-this-rnd');
 const $computerTotalScore = $('#computer-total-score');
+
+const $countdown = $('#countdown');
 
 
 class Die {
@@ -39,6 +42,8 @@ class Die {
 
 }
 
+let numberOfRolls = 0;
+
 
 //empty arrays to store dice rolls
 playerArray = [ ];
@@ -58,6 +63,14 @@ function rollFourDiceAndDisplay(){
 
     let diceRoll4 = new Die().rollDie();
     $computerDiceTwo.html(diceRoll4);
+
+
+    // track number of rolls for winner
+    numberOfRolls++;
+    
+    if(numberOfRolls == 3){
+        endGamePopUp();
+    }
 
             
   
@@ -98,9 +111,29 @@ function rollFourDiceAndDisplay(){
 }
 
 
+function endGamePopUp(){
+    $('#end-game').css('display', 'block');
+
+    let seconds = document.getElementById("countdown").textContent;
+    let countdown = setInterval(function() {
+        seconds--;
+        document.getElementById("countdown").textContent = seconds;
+        if (seconds <= 0) clearInterval(countdown);
+    }, 1000);
 
 
-//  -------- game buttons start -----------
+    setTimeout(function(){
+        location.reload();
+    }, 4000);
+
+
+    
+}
+
+
+
+
+//  -------- game buttons  -----------
 
 $btnRoll.click(rollFourDiceAndDisplay);
 
@@ -116,78 +149,22 @@ $btnRules.click(function(){
 $btnClose.click(function(){
     $('#rules-pop-up').css('display', 'none')
 });
-// -------- game buttons end -------------
 
-
-
-
-
-
-
-
-
-
-
-/* DELETE
-
-// NON-OBJECT ROUTE BELOW... **DELETE**
-
-
-// -- btns for non-object route
-$btnRoll.click(rollDice);
-$btnNewGame.click(function(){
+$btnCloseEndGame.click(function(){
+    $('#end-game').css('display', 'none');
     location.reload();
-
 });
-
-
-playerArray = [ ];
-computerArray = [ ]; 
+// -------- game buttons -------------
 
 
 
-function rollDice(){
-    
-    let diceRollValue1 = 1 + Math.floor(Math.random() * 6);      
-    let diceRollValue2 = 1 + Math.floor(Math.random() * 6);
-    let diceRollValue3 = 1 + Math.floor(Math.random() * 6);
-    let diceRollValue4 = 1 + Math.floor(Math.random() * 6);
-    
-    // update numbers to dice images
-
-     $playerDiceOne.html(diceRollValue1);
-     $playerDiceTwo.html(diceRollValue2);
-     $computerDiceOne.html(diceRollValue3);
-     $computerDiceTwo.html(diceRollValue4);
-
-    // player score per round
-
-    let playerScorePerRound= diceRollValue1 + diceRollValue2;
-    let computerScorePerRound = diceRollValue3 + diceRollValue4;
-    
-    // display the total per round
-    $playerScoreThisRound.html(`Score This Round: <strong>${playerScorePerRound}</strong>`);
-    $computerScoreThisRound.html(`Score This Round: <strong> ${computerScorePerRound} </strong>`);
-    
-    // push values to the player & computer arrays per dice roll
-    playerArray.push(playerScorePerRound);
-    computerArray.push(computerScorePerRound);
-
-    let playerArraySum = playerArray.reduce(function(a,b){
-        return a + b;
-    }, 0);
-
-    let computerArraySum = computerArray.reduce(function(a,b){
-        return a + b;
-    }, 0);
-    
-    // display the total score of all rounds
-    $playerTotalScore.html(`Total Score: <strong>${playerArraySum}</strong>`);
-    $computerTotalScore.html(`Total Score: <strong>${computerArraySum}</strong>`);
 
 
-}
 
 
-*/
+
+
+
+
+/
 
