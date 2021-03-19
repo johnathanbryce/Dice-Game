@@ -21,9 +21,10 @@ html, body {
     
 }
 
-h1, h3 {
+.title, h3 {
     color: $text_theme_color;
     padding-left: 15px;
+    text-decoration: none;
 }
 
 
@@ -93,8 +94,8 @@ footer img{
 #rules-pop-up, #end-game {
     display: none;
     background-color: $gamebox_background_color;
-    width:500px;
-    height: 400px;
+    width: 500px; 
+    height: 400px; 
     padding: 40px;
     border:solid 1px black;
     position:absolute;

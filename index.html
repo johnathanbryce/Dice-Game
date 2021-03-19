@@ -12,7 +12,7 @@
     <body>
 
         <header>
-            <h1> Dice Game  </h1>
+            <h1><a href="index.html" class="title">Dice Game </a> </h1>
 
             <!-- 
             <nav>
@@ -93,10 +93,11 @@
 
             <div>
                 <section id="end-game">
-                    <h2> Dice Game Rules </h2>
+                    <h2 id="end-game-winner">  </h2>
                     <button id="btn-close-end-game">&#10005;</button>
-                    <p>Congratulations! The winner is:  </p>
-                    <p>The game will reset in: <span id="countdown"> 4 </span></p>
+                    <p id = "player-final-score-display"></p>
+                    <p id = "computer-final-score-display"></p>
+                    <p>The game will reset in: <span id="countdown"> 5 </span></p>
                     
                   
                 </section>
@@ -109,7 +110,7 @@
 
 
         <footer>
-                <p> COMP1850 - John Bryce</p>
+                <p> COMP2132 - John Bryce</p>
                     <a href="https://www.linkedin.com/in/johnathanbryce/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn's Company Logo" ></a>
                     <a href="https://github.com/johnathanbryce" target="_blank"><img src="images/github.png" alt="GitHub's Company Logo"></a>
                    
@@ -119,7 +120,9 @@
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
-<script src="scripts/scripts.js"></script>
+
+        <!-- <script src="scripts/functions.js"></script> -->
+        <script src="scripts/scripts.js"></script>
 
 
     </body>

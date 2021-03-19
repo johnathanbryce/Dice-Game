@@ -12,9 +12,10 @@ html, body {
   flex-direction: column;
 }
 
-h1, h3 {
+.title, h3 {
   color: #FED766;
   padding-left: 15px;
+  text-decoration: none;
 }
 
 section {
