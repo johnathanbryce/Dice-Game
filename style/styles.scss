@@ -46,6 +46,11 @@ section p {
  
 }
 
+section img{
+    padding: 20px;
+    
+}
+
 .grid_container { 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
