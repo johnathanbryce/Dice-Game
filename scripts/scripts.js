@@ -8,6 +8,7 @@ const $btnCloseEndGame = $('#btn-close-end-game');
 
 // player & computer dice
 const $playerDiceOneImage = $('#player-dice-1-img')
+//const playerSpinTest = document.getElementById("player-dice-1-img");
 const $playerDiceTwoImage = $('#player-dice-2-img')
 const $computerDiceOneImage = $('#player-dice-3-img')
 const $computerDiceTwoImage = $('#player-dice-4-img')
@@ -21,6 +22,9 @@ const $computerTotalScoreDisplay = $('#computer-total-score');
 // end of game
 const $countdown = $('#countdown');
 const $endGameWinner = $('#end-game-winner');
+
+
+const diceSpin1 = document.getElementById('dice-animation1');
 
 // Die objects
 
@@ -63,7 +67,7 @@ $btnNewGame.click(function(){
 });
 
 $btnRules.click(function(){
-    $('#rules-pop-up').css('display', 'block')
+    $('#rules-pop-up').hide().fadeIn(500);
 });
 $btnClose.click(function(){
     $('#rules-pop-up').css('display', 'none')
@@ -91,65 +95,65 @@ function rollFourDiceAndDisplay(){
     let diceRoll1 = new Die().rollDie();
     
     if (diceRoll1 == 1){
-        $playerDiceOneImage.attr('src', 'images/dice-one.png');
+        $playerDiceOneImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll1 == 2){
-        $playerDiceOneImage.attr('src', 'images/dice-two.png');
+        $playerDiceOneImage.attr('src', 'images/dice-2.png');
     } else if (diceRoll1 == 3){
-        $playerDiceOneImage.attr('src', 'images/dice-three.png');
+        $playerDiceOneImage.attr('src', 'images/dice-3.png');
     } else if (diceRoll1 == 4){
-        $playerDiceOneImage.attr('src', 'images/dice-four.png');
+        $playerDiceOneImage.attr('src', 'images/dice-4.png');
     } else if (diceRoll1 == 5){
-        $playerDiceOneImage.attr('src', 'images/dice-five.png');
+        $playerDiceOneImage.attr('src', 'images/dice-5.png');
     } else  if (diceRoll1 == 6) {
-        $playerDiceOneImage.attr('src', 'images/dice-six.png');
+        $playerDiceOneImage.attr('src', 'images/dice-6.png');
     }
 
     let diceRoll2 = new Die().rollDie();
         
     if (diceRoll2 == 1){
-        $playerDiceTwoImage.attr('src', 'images/dice-one.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll2 == 2){
-        $playerDiceTwoImage.attr('src', 'images/dice-two.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-2.png');
     } else if (diceRoll2 == 3){
-        $playerDiceTwoImage.attr('src', 'images/dice-three.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-3.png');
     } else if (diceRoll2 == 4){
-        $playerDiceTwoImage.attr('src', 'images/dice-four.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-4.png');
     } else if (diceRoll2 == 5){
-        $playerDiceTwoImage.attr('src', 'images/dice-five.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-5.png');
     } else  if (diceRoll2 == 6) {
-        $playerDiceTwoImage.attr('src', 'images/dice-six.png');
+        $playerDiceTwoImage.attr('src', 'images/dice-6.png');
     }
 
     let diceRoll3 = new Die().rollDie();
         
     if (diceRoll3 == 1){
-        $computerDiceOneImage.attr('src', 'images/dice-one.png');
+        $computerDiceOneImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll3 == 2){
-        $computerDiceOneImage.attr('src', 'images/dice-two.png');
+        $computerDiceOneImage.attr('src', 'images/dice-2.png');
     } else if (diceRoll3 == 3){
-        $computerDiceOneImage.attr('src', 'images/dice-three.png');
+        $computerDiceOneImage.attr('src', 'images/dice-3.png');
     } else if (diceRoll3 == 4){
-        $computerDiceOneImage.attr('src', 'images/dice-four.png');
+        $computerDiceOneImage.attr('src', 'images/dice-4.png');
     } else if (diceRoll3 == 5){
-        $computerDiceOneImage.attr('src', 'images/dice-five.png');
+        $computerDiceOneImage.attr('src', 'images/dice-5.png');
     } else  if (diceRoll3 == 6) {
-        $computerDiceOneImage.attr('src', 'images/dice-six.png');
+        $computerDiceOneImage.attr('src', 'images/dice-6.png');
     }
 
     let diceRoll4 = new Die().rollDie();
       
     if (diceRoll4 == 1){
-        $computerDiceTwoImage.attr('src', 'images/dice-one.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll4 == 2){
-        $computerDiceTwoImage.attr('src', 'images/dice-two.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-2.png');
     } else if (diceRoll4 == 3){
-        $computerDiceTwoImage.attr('src', 'images/dice-three.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-3.png');
     } else if (diceRoll4 == 4){
-        $computerDiceTwoImage.attr('src', 'images/dice-four.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-4.png');
     } else if (diceRoll4 == 5){
-        $computerDiceTwoImage.attr('src', 'images/dice-five.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-5.png');
     } else  if (diceRoll4 == 6) {
-        $computerDiceTwoImage.attr('src', 'images/dice-six.png');
+        $computerDiceTwoImage.attr('src', 'images/dice-6.png');
     }
 
   
@@ -241,13 +245,58 @@ function rollFourDiceAndDisplay(){
          endGamePopUp();
      }
 
+
+
+
+     // start the dice spin animation 
+     /*
+     keepSpining = true;
+    
+     diceAnimationHandler = requestAnimationFrame( spinImage);
+     */
+
+
+
 } // END OF ROLL FUNCTION
 
 
 
+let diceAnimationHandler;
+//flag to track if user has chosen to start or stop
+let keepSpining = false;
+//the first image # in the group
+let currentImageNumber = 1;
+//the last image # in the group
+const maxImageNumber = 6;
 
-// ------- Game Pop-up -------
+
+function spinImage(){
     
+  
+
+    if(keepSpining === true){
+        currentImageNumber++;
+
+    }  if (currentImageNumber >= maxImageNumber){
+        keepSpining = false;
+        currentImageNumber = 1;
+    } 
+    
+    
+    
+    playerSpinTest.src = `images/dice-${currentImageNumber}.png`;
+    
+        
+    // loops the function
+    setTimeout(function(){
+           
+        diceAnimationHandler = requestAnimationFrame( spinImage );
+
+    
+    }, 75);
+        
+}
+
 
 
 
