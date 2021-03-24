@@ -8,10 +8,17 @@ const $btnCloseEndGame = $('#btn-close-end-game');
 
 // player & computer dice
 const $playerDiceOneImage = $('#player-dice-1-img')
-//const playerSpinTest = document.getElementById("player-dice-1-img");
 const $playerDiceTwoImage = $('#player-dice-2-img')
-const $computerDiceOneImage = $('#player-dice-3-img')
-const $computerDiceTwoImage = $('#player-dice-4-img')
+const $computerDiceOneImage = $('#computer-dice-1-img')
+const $computerDiceTwoImage = $('#computer-dice-2-img')
+
+// spin animation for player & computer dice
+/*
+const playerDiceOneSpinAnimation = document.getElementById("player-dice-1-img");
+const playerDiceTwoSpinAnimation = document.getElementById("player-dice-2-img");
+const computerDiceOneSpinAnimation = document.getElementById("computer-dice-1-img");
+const computerDiceTwoSpinAnimation = document.getElementById("computer-dice-2-img");
+*/
 
 // total scores
 const $playerScoreThisRound = $('#player-score-this-rnd');
@@ -23,10 +30,12 @@ const $computerTotalScoreDisplay = $('#computer-total-score');
 const $countdown = $('#countdown');
 const $endGameWinner = $('#end-game-winner');
 
-
+// dice spin  & countdown animation  
 const diceSpin1 = document.getElementById('dice-animation1');
 const diceSpin2 = document.getElementById('dice-animation2');
 const diceSpin3 = document.getElementById('dice-animation3');
+const diceSpin4 = document.getElementById('dice-animation4');
+const diceCountDownAnimation = document.getElementById('end-game-countdown-animation');
 
 // audio effects
 const diceRollAudio = document.getElementById("audio-dice-roll");
@@ -38,7 +47,7 @@ let audioCounter = 0;
 
 function diceAudio(){
     diceRollAudio.play();
-    if (audioCounter == 3){
+    if (audioCounter == 4){
         diceRollAudio.pause(); 
     }
 }
@@ -47,22 +56,16 @@ function diceAudio(){
 
 class Die {
     constructor(){
-        //this.currentValue = 1;
+        
     }
 
     rollDie(){
-        let diceRollValue = 1 + Math.floor(Math.random() * 6);
-        //this.currentValue = diceRollValue;
-        //console.log(diceRollValue);
+        let diceRollValue = 1 + Math.floor(Math.random() * 6);  
         
+
         return diceRollValue;
         
     }
-
-
-    
-    
-
 }
 
 // track num of rolls for end of game
@@ -86,9 +89,16 @@ $btnNewGame.click(function(){
 
 $btnRules.click(function(){
     $('#rules-pop-up').hide().fadeIn(500);
+    //$('#rules-pop-up').css('filter, blur(0)');
+    $('#main').css('filter', 'blur(4px)');
+    $('#btn-container').css('display', 'none');
+    
+    
 });
 $btnClose.click(function(){
     $('#rules-pop-up').css('display', 'none')
+    $('#main').css('filter', 'blur(0)');
+    $('#btn-container').css('display', 'flex');
 });
 
 $btnCloseEndGame.click(function(){
@@ -98,10 +108,7 @@ $btnCloseEndGame.click(function(){
 // -------- game buttons -------------
 
 
-
-
-
-// --------  functions ----
+// --------  functions below ----
 
 
 // ----- roll dice function ------- 
@@ -116,6 +123,8 @@ function rollFourDiceAndDisplay(){
     // roll seperate dice & update to dice image based on roll number
     let diceRoll1 = new Die().rollDie();
     
+    
+    
     if (diceRoll1 == 1){
         $playerDiceOneImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll1 == 2){
@@ -129,9 +138,13 @@ function rollFourDiceAndDisplay(){
     } else  if (diceRoll1 == 6) {
         $playerDiceOneImage.attr('src', 'images/dice-6.png');
     }
+    
+    
+    
 
     let diceRoll2 = new Die().rollDie();
-        
+    
+    
     if (diceRoll2 == 1){
         $playerDiceTwoImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll2 == 2){
@@ -145,9 +158,10 @@ function rollFourDiceAndDisplay(){
     } else  if (diceRoll2 == 6) {
         $playerDiceTwoImage.attr('src', 'images/dice-6.png');
     }
+    
 
     let diceRoll3 = new Die().rollDie();
-        
+    
     if (diceRoll3 == 1){
         $computerDiceOneImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll3 == 2){
@@ -161,9 +175,9 @@ function rollFourDiceAndDisplay(){
     } else  if (diceRoll3 == 6) {
         $computerDiceOneImage.attr('src', 'images/dice-6.png');
     }
-
+    
     let diceRoll4 = new Die().rollDie();
-      
+    
     if (diceRoll4 == 1){
         $computerDiceTwoImage.attr('src', 'images/dice-1.png');
     } else  if (diceRoll4 == 2){
@@ -177,7 +191,7 @@ function rollFourDiceAndDisplay(){
     } else  if (diceRoll4 == 6) {
         $computerDiceTwoImage.attr('src', 'images/dice-6.png');
     }
-
+    
   
 
   
@@ -196,7 +210,7 @@ function rollFourDiceAndDisplay(){
 
     if(diceRoll3 == 1 || diceRoll4 == 1){
         computerScorePerRound = 0;
-    } else if (diceRoll3== diceRoll4) {
+    } else if (diceRoll3 == diceRoll4) {
         computerScorePerRound = (diceRoll3 + diceRoll4) * multiplier;
     } else {
         computerScorePerRound = diceRoll3 + diceRoll4;
@@ -225,12 +239,16 @@ function rollFourDiceAndDisplay(){
     $playerTotalScoreDisplay.html(`Total Score: <strong>${playerArraySum}</strong>`);
     $computerTotalScoreDisplay.html(`Total Score: <strong>${computerArraySum}</strong>`);
 
+    
 
     // end game pop up function  (nested within rollFourDiceAndDisplay due to scope)
     function endGamePopUp(){
         $('#end-game').css('display', 'block');
-        $('#btn-roll').css('display', 'none');
-        $('#btn-rules').css('display', 'none');
+        $('#main').css('filter', 'blur(4px)');
+        $btnRoll.css('display', 'none');
+        $btnRules.css('display', 'none');
+        $btnNewGame.css('filter', 'blur(0)');
+        
 
         $('#player-final-score-display').html(`<strong>Your Final Score: ${playerArraySum} </strong>`);
         $('#computer-final-score-display').html(`<strong> Computer's Final Score: ${computerArraySum} </strong>`);
@@ -246,24 +264,37 @@ function rollFourDiceAndDisplay(){
             $('#end-game').css('background-color', '#ec4d45');
         } else if (playerArraySum == computerArraySum){
             gameTieAudio.play();
-            $endGameWinner.html(`Wow, we have a rare tie game. Try again!`);
+            $endGameWinner.html(`Wow, we have a tie game. Try again!`);
             $('#end-game').css('background-color', '#537D8D');
         } else {
             
         }
        
-    
+        /*
         let seconds = document.getElementById("countdown").textContent;
         let countdown = setInterval(function() {
             seconds--;
             document.getElementById("countdown").textContent = seconds;
             if (seconds <= 0) clearInterval(countdown);
         }, 1000);
-    
+        */
+
+
+         // dice countdown 
+        let diceCountDown = 5;
+        setInterval(function(){
+            diceCountDown--;
+            diceCountDownAnimation.src = `images/dice-${diceCountDown}.png`;
+            console.log(diceCountDown);
+        }, 1000);
+
+   
     
         setTimeout(function(){
             location.reload();
         }, 5000);
+
+        
     
     
         
@@ -273,31 +304,44 @@ function rollFourDiceAndDisplay(){
      numberOfRolls++;
     
      if(numberOfRolls == 3){
-         endGamePopUp();
+        $('#btn-roll').css('display', 'none');
+        $('#btn-rules').css('display', 'none');
+        setTimeout(function(){
+               
+            endGamePopUp();
+            
+    
+        
+        }, 1750);
+         
      }
 
 
 
+  
 
+
+   
      // start the dice spin animation 
      
      keepRolling = true;
-    
-     diceAnimationHandler = requestAnimationFrame( rollDiceAnimation);
-     
 
+     
+    
+     diceAnimationHandler = requestAnimationFrame(rollDiceAnimation);
 
 
 } // END OF ROLL FUNCTION
 
 
+// ---- animating the dice roll -------- 
 
 let diceAnimationHandler;
-//flag to track if user has chosen to start or stop
 let keepRolling = false;
-
 let currentImageNumber = 1;
-
+let currentImageNumberTwo = 1;
+let currentImageNumberThree = 1;
+let currentImageNumberFour = 1;
 const maxImageNumber = 6;
 
 
@@ -307,26 +351,32 @@ function rollDiceAnimation(){
 
     if(keepRolling === true){
         currentImageNumber++;
+        currentImageNumberTwo++;
+        currentImageNumberThree++;
+        currentImageNumberFour++;
 
-    }  if (currentImageNumber >= maxImageNumber){
+    }  if (currentImageNumber > maxImageNumber){
         keepRolling = false;
-        currentImageNumber = 1;
+        currentImageNumber = 1 + Math.floor(Math.random() * 6);
+        currentImageNumberTwo = 1 + Math.floor(Math.random() * 6);
+        currentImageNumberThree = 1 + Math.floor(Math.random() * 6);  
+        currentImageNumberFour = 1 + Math.floor(Math.random() * 6);  
     } 
     
     
     
     diceSpin1.src = `images/dice-${currentImageNumber}.png`;
-    diceSpin2.src = `images/dice-${currentImageNumber}.png`;
-    diceSpin3.src = `images/dice-${currentImageNumber}.png`; 
-    //playerSpinTest.src = `images/dice-${currentImageNumber}.png`; 
-
+    diceSpin2.src = `images/dice-${currentImageNumberTwo}.png`;
+    diceSpin3.src = `images/dice-${currentImageNumberThree}.png`; 
+    diceSpin4.src = `images/dice-${currentImageNumberFour}.png`; 
+    
     // loops the function
     setTimeout(function(){
            
         diceAnimationHandler = requestAnimationFrame( rollDiceAnimation );
 
     
-    }, 75);
+    }, 200);
         
 }
 

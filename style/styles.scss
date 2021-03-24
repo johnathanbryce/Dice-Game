@@ -1,12 +1,12 @@
 
 $main_background_color: #1f2125;
 $gamebox_background_color: #FFF8F0;
-$text_theme_color: #F28482;
+$text_theme_color: #53A2BE;
 
 
 body {
     max-width: 1200px; 
-	margin: 0 auto !important;  
+	margin: 0 auto !important; 
 }
 
 html, body {
@@ -24,23 +24,38 @@ html, body {
     
 }
 
+h1{
+    font-size: 2.5em;
+    
+}
+
+
 header {
     display: flex;
     justify-content: space-between;
+
       
 }
 
+
 header img{
-    margin-right: 200px;
-    margin-top: 20px;
+    margin: 30px;
     width: 50px;
     height: 50px;
 }
 
-.title, h3 {
+
+h3 {
     color: $text_theme_color;
     padding-left: 15px;
+    
+}
+
+.title{
+    color: $text_theme_color;
     text-decoration: none;
+
+
 }
 
 h2 {
@@ -53,6 +68,7 @@ section {
     background-color: $gamebox_background_color;
     margin-bottom: 25px;
     margin: 15px;
+
   
 }
 
@@ -63,9 +79,16 @@ section p {
 
 section img{
   
-    padding-left: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     
     
+}
+
+.dice-box{
+    display: flex;
+    justify-content: center;
+   
 }
 
 
@@ -74,6 +97,9 @@ section img{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0.25em;
+    border: 1.5px solid $gamebox_background_color;
+    background-image: url("../images/dice-background3.jpeg");
+
     
 }
 
@@ -81,8 +107,7 @@ section img{
 .btn-container {
     display:flex;
     justify-content: center;
-    margin-top: 40px;
-    
+    margin-top: 40px; 
 }
 
 button {
@@ -124,7 +149,7 @@ footer img{
 
 
 
-#rules-pop-up, #end-game {
+#rules-pop-up {
     display: none;
     background-color: #38AECC;
     width: 500px; 
@@ -141,10 +166,37 @@ footer img{
  
 }
 
+#end-game{
+    display: none;
+    background-color: #38AECC;
+    width: 300px; 
+    height: 300px; 
+    padding: 40px;
+    border:solid 1px black;
+    position:absolute;
+    top: 40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    -moz-box-shadow:    3px 3px 5px 6px $main_background_color;
+    -webkit-box-shadow: 3px 3px 5px 6px $main_background_color;
+    box-shadow:         3px 3px 5px 6px $main_background_color;
+}
+
 #rules-pop-up p{
     padding: 5px;
     padding-left: 12px;
     margin-top: 30px;
+}
+
+.flex-countdown-animation{
+    display: flex;
+    flex-direction: row;
+    //justify-content: center;
+}
+
+.countdown-animation{
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -163,7 +215,7 @@ footer img{
    
   }
   
-  @media screen and (max-width: 960px) and (min-width: 500px) {
+  @media screen and (max-width: 960px) and (min-width: 600px) {
     
     header img {
     display: none;
@@ -178,13 +230,24 @@ footer img{
         
     }
 
+    button {
+        padding: 7px;
+        margin: 5px;
+    }
+
+    footer{
+        position: absolute;
+    }
+
   }
   
-  @media screen and (max-width: 500px) {
-    .grid_container { 
+  @media screen and (max-width: 600px) {
+    .grid-container { 
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 0.25em;
+        background-image: none;
+        border: 0px;
         
     }
 
@@ -207,19 +270,42 @@ footer img{
         top: 5px;
         right: 5px;
         margin-top: 10px;
-        margin-right: 15px;
-        
+        margin-right: 15px;      
     }
 
     button {
-        padding: 10px;
-        margin: 5px;
+        padding: 5px;
+        margin: 3px;
     }
 
     header img{
         display: none;
     }
 
+    footer{
+        position: relative;
+    }
+
+    
+
   }
 
 
+/*
+@media screen and (max-width: 350px) {
+
+       h1 {
+           font-size: 0.75em;
+       }
+
+        .btn-container{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            margin-top: 5px;
+            margin-right: 5px;
+            
+        }
+   
+    }
+*/

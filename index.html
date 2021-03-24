@@ -12,13 +12,17 @@
     <body>
 
         <header>
-            <h1><a href="index.html" class="title">Dice Game </a> </h1>
+            
+             
             <img id ="dice-animation1" src="images/dice-1.png" alt="">
             <img id ="dice-animation2" src="images/dice-2.png" alt="">
+            <h1><a href="index.html" class="title">Dice Game </a> </h1>
             <img id ="dice-animation3" src="images/dice-3.png" alt="">
+            <img id ="dice-animation4" src="images/dice-4.png" alt="">
+            
         </header>
 
-        <main>
+        <main id="main">
             <!-- audio provided by zapsplat.com -->
             <audio id="audio-dice-roll"> 
                 <source src="audio/dice-shake.mp3" type="audio/mpeg">
@@ -40,10 +44,10 @@
                     
                         <div>
                             <h2> Your Dice </h2>
-                            <div>
-                                <img id="player-dice-1-img" src="images/dice-1.png" alt="" width="100" height="100">
-                                <img id="player-dice-2-img" src="images/dice-1.png" alt="" width="100" height="100">
+                            <div class="dice-box">
                                 
+                                <img id="player-dice-1-img" src="images/dice-1.png" alt="" width="100" height="100">
+                                <img id="player-dice-2-img" src="images/dice-1.png" alt="" width="100" height="100">   
                             </div>
                         </div>
 
@@ -67,9 +71,9 @@
                 <section>
                         <div>
                             <h2> Computer's Dice </h2>
-                            <div>
-                                <img id="player-dice-3-img" src="images/dice-1.png" alt="" width="100" height="100">
-                                <img id="player-dice-4-img" src="images/dice-1.png" alt="" width="100" height="100">
+                            <div class="dice-box">
+                                <img id="computer-dice-1-img" src="images/dice-1.png" alt="" width="100" height="100">
+                                <img id="computer-dice-2-img" src="images/dice-1.png" alt="" width="100" height="100">
                             </div>
                         </div>
                 </section>
@@ -86,47 +90,55 @@
 
             </div> <!-- grid container for dice game ends -->
 
-            <div class="btn-container">
-                <button id="btn-roll" > Roll </button>
-                <button id="btn-new-game"> New Game</button>
-                <button id="btn-rules"> Rules </button>
-            </div>
+           
 
-            <div>
-                <section id="rules-pop-up">
-                    <h2> Dice Game Rules </h2>
-                    <button id="btn-close" class="close-buttons">&#10005;</button>
-                    <p> If any of the two dice comes up as a 1 then the score for that round is 0. </p>
-                            <ul>
-                                <li> ex: if you roll a 6 and 1, you get a score of 0 </li>
-                            </ul>
-                    <p> If a pair of the same numbers are rolled then the score is the total of the two dice multiplied by 2 </p>
-                            <ul>
-                                <li> ex: if you roll 5 and 5, you get a score of (5+5)*2 = 20 </li>
-                            </ul>
-                    <p> Any other combination of dice results in the total value of the two dice. </p>
-                            <ul>
-                                <li>  ex: if you roll a 3 and 2, you get a score of 3+2 =5</li>
-                            </ul>
-                </section>
-            </div>
-
-            <div>
-                <section id="end-game">
-                    <h2 id="end-game-winner">  </h2>
-                    <button id="btn-close-end-game" class="close-buttons">&#10005;</button>
-                    <p id = "player-final-score-display"></p>
-                    <p id = "computer-final-score-display"></p>
-                    <p>The game will reset in: <span id="countdown"> 5 </span></p>
-                    
-                  
-                </section>
-            </div>
+    
             
 
 
 
         </main>
+
+        <div id="btn-container" class="btn-container" >
+            <button id="btn-roll" > Roll </button>
+            <button id="btn-new-game"> New Game</button>
+            <button id="btn-rules"> Rules </button>
+        </div>
+
+
+        <div>
+            <section id="rules-pop-up">
+                <h2> Dice Game Rules </h2>
+                <button id="btn-close" class="close-buttons">&#10005;</button>
+                <p> If any of the two dice comes up as a 1 then the score for that round is 0. </p>
+                        <ul>
+                            <li> ex: if you roll a 6 and 1, you get a score of 0 </li>
+                        </ul>
+                <p> If a pair of the same numbers are rolled then the score is the total of the two dice multiplied by 2 </p>
+                        <ul>
+                            <li> ex: if you roll 5 and 5, you get a score of (5+5)*2 = 20 </li>
+                        </ul>
+                <p> Any other combination of dice results in the total value of the two dice. </p>
+                        <ul>
+                            <li>  ex: if you roll a 3 and 2, you get a score of 3+2 =5</li>
+                        </ul>
+            </section>
+        </div>
+
+        <div>
+            <section id="end-game">
+                <h2 id="end-game-winner">  </h2>
+                <button id="btn-close-end-game" class="close-buttons">&#10005;</button>
+                <p id = "player-final-score-display"></p>
+                <p id = "computer-final-score-display"></p>
+                <!-- <p>The game will reset in: <span id="countdown"> 5 </span></p> -->
+                <div class="flex-countdown-animation">
+                    <p>The game will reset in: </p>
+                    <img id="end-game-countdown-animation" class="countdown-animation" src="images/dice-5.png" alt="" width="50" height="50">
+                </div>
+              
+            </section>
+        </div>
 
 
         <footer>
