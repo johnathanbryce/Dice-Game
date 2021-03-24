@@ -12,14 +12,6 @@ const $playerDiceTwoImage = $('#player-dice-2-img')
 const $computerDiceOneImage = $('#computer-dice-1-img')
 const $computerDiceTwoImage = $('#computer-dice-2-img')
 
-// spin animation for player & computer dice
-/*
-const playerDiceOneSpinAnimation = document.getElementById("player-dice-1-img");
-const playerDiceTwoSpinAnimation = document.getElementById("player-dice-2-img");
-const computerDiceOneSpinAnimation = document.getElementById("computer-dice-1-img");
-const computerDiceTwoSpinAnimation = document.getElementById("computer-dice-2-img");
-*/
-
 // total scores
 const $playerScoreThisRound = $('#player-score-this-rnd');
 const $playerTotalScoreDisplay = $('#player-total-score');
@@ -30,7 +22,7 @@ const $computerTotalScoreDisplay = $('#computer-total-score');
 const $countdown = $('#countdown');
 const $endGameWinner = $('#end-game-winner');
 
-// dice spin  & countdown animation  
+// dice spin in header & countdown animation  
 const diceSpin1 = document.getElementById('dice-animation1');
 const diceSpin2 = document.getElementById('dice-animation2');
 const diceSpin3 = document.getElementById('dice-animation3');
@@ -89,7 +81,6 @@ $btnNewGame.click(function(){
 
 $btnRules.click(function(){
     $('#rules-pop-up').hide().fadeIn(500);
-    //$('#rules-pop-up').css('filter, blur(0)');
     $('#main').css('filter', 'blur(4px)');
     $('#btn-container').css('display', 'none');
     
@@ -106,6 +97,8 @@ $btnCloseEndGame.click(function(){
     location.reload();
 });
 // -------- game buttons -------------
+
+
 
 
 // --------  functions below ----
@@ -256,11 +249,11 @@ function rollFourDiceAndDisplay(){
        
         if(playerArraySum  > computerArraySum){
             gameWinAudio.play();
-            $endGameWinner.html(`You win! You have won by ${playerArraySum - computerArraySum} points with a total score of ${playerArraySum}.`);
+            $endGameWinner.html(`You win! You have won by ${playerArraySum - computerArraySum} point(s) with a total score of ${playerArraySum}.`);
             $('#end-game').css('background-color', '#4FB286');
         }else if(playerArraySum < computerArraySum){
             gameLoseAudio.play();
-            $endGameWinner.html(`You lose! The Computer has won by ${computerArraySum - playerArraySum} points with a total score of ${computerArraySum}.`);
+            $endGameWinner.html(`You lose! The Computer has won by ${computerArraySum - playerArraySum} point(s) with a total score of ${computerArraySum}.`);
             $('#end-game').css('background-color', '#ec4d45');
         } else if (playerArraySum == computerArraySum){
             gameTieAudio.play();
@@ -269,16 +262,6 @@ function rollFourDiceAndDisplay(){
         } else {
             
         }
-       
-        /*
-        let seconds = document.getElementById("countdown").textContent;
-        let countdown = setInterval(function() {
-            seconds--;
-            document.getElementById("countdown").textContent = seconds;
-            if (seconds <= 0) clearInterval(countdown);
-        }, 1000);
-        */
-
 
          // dice countdown 
         let diceCountDown = 5;
@@ -334,6 +317,7 @@ function rollFourDiceAndDisplay(){
 } // END OF ROLL FUNCTION
 
 
+
 // ---- animating the dice roll -------- 
 
 let diceAnimationHandler;
@@ -348,7 +332,7 @@ const maxImageNumber = 6;
 function rollDiceAnimation(){
     
   
-
+    // note: had to add extra die images to compensate for the image animation rollover
     if(keepRolling === true){
         currentImageNumber++;
         currentImageNumberTwo++;

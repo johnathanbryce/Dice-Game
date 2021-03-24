@@ -1,7 +1,14 @@
 
 $main_background_color: #1f2125;
 $gamebox_background_color: #FFF8F0;
-$text_theme_color: #53A2BE;
+$text_theme_color: #05bcff;
+
+@mixin btn-close-style ($margin, $padding, $border-color){
+
+    padding: 10px;
+    margin: 5px;
+    border:2px solid $border-color;   
+}
 
 
 body {
@@ -20,21 +27,13 @@ html, body {
     font-family: 'Open Sans', sans-serif;
     background-color: $main_background_color;
     display: flex;
-    flex-direction: column;
-    
-}
-
-h1{
-    font-size: 2.5em;
-    
+    flex-direction: column;  
 }
 
 
 header {
     display: flex;
     justify-content: space-between;
-
-      
 }
 
 
@@ -44,6 +43,17 @@ header img{
     height: 50px;
 }
 
+.title{
+    color: $text_theme_color;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+h2 {
+    //padding-left: 10px;
+    text-align: center;
+    color: #FF1B1C;
+}
 
 h3 {
     color: $text_theme_color;
@@ -51,18 +61,9 @@ h3 {
     
 }
 
-.title{
-    color: $text_theme_color;
-    text-decoration: none;
-
-
-}
-
-h2 {
-    padding-left: 10px;
-}
 
 section {
+
     padding: 5px;
     border: 2px solid #272727;
     background-color: $gamebox_background_color;
@@ -96,13 +97,13 @@ section img{
 .grid-container { 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    //grid-template-columns: 2.5fr 1.6fr;
     grid-gap: 0.25em;
     border: 1.5px solid $gamebox_background_color;
     background-image: url("../images/dice-background3.jpeg");
 
     
 }
-
 
 .btn-container {
     display:flex;
@@ -111,9 +112,12 @@ section img{
 }
 
 button {
+    /*
     padding: 15px;
     margin: 10px;
     cursor: pointer;
+    */
+    @include btn-close-style(15px, 10px, $gamebox_background_color);
 }
 
 button:hover{
@@ -121,8 +125,11 @@ button:hover{
 }
 
 .close-buttons{
+    /*
     padding: 10px;
     margin: 5px;
+    */
+    @include btn-close-style(15px, 10px, $gamebox_background_color);
 }
 
 
@@ -147,17 +154,28 @@ footer img{
     
 }
 
+.flex-countdown-animation{
+    display: flex;
+    flex-direction: row;
+    //justify-content: center;
+}
+
+.countdown-animation{
+    margin: 0px;
+    padding: 0px;
+}
+
 
 
 #rules-pop-up {
     display: none;
     background-color: #38AECC;
     width: 500px; 
-    height: 400px; 
+    height: 450px; 
     padding: 40px;
     border:solid 1px black;
     position:absolute;
-    top: 40%;
+    top: 50%;
     left:50%;
     transform:translate(-50%, -50%);
     -moz-box-shadow:    3px 3px 5px 6px $main_background_color;
@@ -174,7 +192,7 @@ footer img{
     padding: 40px;
     border:solid 1px black;
     position:absolute;
-    top: 40%;
+    top: 45%;
     left:50%;
     transform:translate(-50%, -50%);
     -moz-box-shadow:    3px 3px 5px 6px $main_background_color;
@@ -182,21 +200,14 @@ footer img{
     box-shadow:         3px 3px 5px 6px $main_background_color;
 }
 
+.h2-pop-ups {
+    color: white;
+}
+
 #rules-pop-up p{
     padding: 5px;
     padding-left: 12px;
     margin-top: 30px;
-}
-
-.flex-countdown-animation{
-    display: flex;
-    flex-direction: row;
-    //justify-content: center;
-}
-
-.countdown-animation{
-    margin: 0px;
-    padding: 0px;
 }
 
 
@@ -244,7 +255,7 @@ footer img{
   @media screen and (max-width: 600px) {
     .grid-container { 
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, auto);
         grid-gap: 0.25em;
         background-image: none;
         border: 0px;
