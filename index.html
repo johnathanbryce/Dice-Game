@@ -1,158 +1,211 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Dice Game</title>
-  <meta charset="UTF-8">
-  <meta content="initial-scale=1.0, width=device-width viewport-fit=cover" name="viewport">
-  <link href="style/styles.css" rel="stylesheet" type="text/css">
-  <noscript>
+  <head>
+    <title>Dice Game</title>
+    <meta charset="UTF-8" />
+    <meta
+      content="initial-scale=1.0, width=device-width viewport-fit=cover"
+      name="viewport"
+    />
+    <link href="style/styles.css" rel="stylesheet" type="text/css" />
+    <noscript>
       You need to enable Javascript in order to run this page.
-  </noscript>
-</head>
+    </noscript>
+  </head>
 
-<body>
-  <header>
-    <img alt="A picture of a dice" id="dice-animation1" src="images/dice-1.png"> <img alt="" id="dice-animation2" src="images/dice-2.png">
+  <body>
+    <header>
+      <img
+        alt="A picture of a dice"
+        id="dice-animation1"
+        src="images/dice-1.png"
+      />
+      <img alt="" id="dice-animation2" src="images/dice-2.png" />
 
-    <h1><a class="title" href="index.html">Dice Game</a>
-    </h1>
-    <img alt="A picture of a dice" id="dice-animation3" src="images/dice-3.png"> <img alt="" id="dice-animation4" src="images/dice-4.png">
-  </header>
+      <h1 class="neon-text">
+        <a class="title" href="index.html">Dice Game</a>
+      </h1>
+      <img
+        alt="A picture of a dice"
+        id="dice-animation3"
+        src="images/dice-3.png"
+      />
+      <img alt="" id="dice-animation4" src="images/dice-4.png" />
+    </header>
 
+    <main id="main">
+      <!-- audio provided by zapsplat.com -->
+      <audio id="audio-dice-roll">
+        <source src="audio/dice-shake.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="audio-game-lose">
+        <source src="audio/game-lose.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="audio-game-win">
+        <source src="audio/game-win.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="audio-game-tie">
+        <source src="audio/game-tie.mp3" type="audio/mpeg" />
+      </audio>
 
-  <main id="main">
-    <!-- audio provided by zapsplat.com -->
-    <audio id="audio-dice-roll"><source src="audio/dice-shake.mp3" type="audio/mpeg"></audio> <audio id="audio-game-lose"><source src="audio/game-lose.mp3" type="audio/mpeg"></audio> <audio id="audio-game-win"><source src="audio/game-win.mp3" type="audio/mpeg"></audio> <audio id="audio-game-tie"><source src="audio/game-tie.mp3" type="audio/mpeg"></audio>
+      <div class="grid-container">
+        <!-- Dice Game for Player -->
 
-    <div class="grid-container">
-      <!-- Dice Game for Player -->
-
-
-      <section>
-        <div>
-          <h2>Your Dice</h2>
-
-
-          <div class="dice-box"><img alt="A picture of a dice" height="100" id="player-dice-1-img" src="images/dice-1.png" width="100"> <img alt="A picture of a dice" height="100" id="player-dice-2-img" src="images/dice-1.png" width="100"></div>
-        </div>
-      </section>
-
-
-      <section>
-        <div>
-          <h2>Your Score</h2>
-
-
+        <section>
           <div>
-            <p id="player-score-this-rnd">Score This Round:</p>
+            <h2>Your Dice</h2>
 
-
-            <p id="player-total-score">Total Score:</p>
+            <div class="dice-box">
+              <img
+                alt="A picture of a dice"
+                height="100"
+                id="player-dice-1-img"
+                src="images/dice-1.png"
+                width="100"
+              />
+              <img
+                alt="A picture of a dice"
+                height="100"
+                id="player-dice-2-img"
+                src="images/dice-1.png"
+                width="100"
+              />
+            </div>
           </div>
-        </div>
-      </section>
-      <!-- Dice Game for Computer -->
+        </section>
 
-
-      <section>
-        <div>
-          <h2>Computer's Dice</h2>
-
-
-          <div class="dice-box"><img alt="A picture of a dice" height="100" id="computer-dice-1-img" src="images/dice-1.png" width="100"> <img alt="A picture of a dice" height="100" id="computer-dice-2-img" src="images/dice-1.png" width="100"></div>
-        </div>
-      </section>
-
-
-      <section>
-        <div>
-          <h2>Computer's Score</h2>
-
-
+        <section>
           <div>
-            <p id="computer-score-this-rnd">Score This Round:</p>
+            <h2>Your Score</h2>
 
+            <div>
+              <p id="player-score-this-rnd">Score This Round:</p>
 
-            <p id="computer-total-score">Total Score:</p>
+              <p id="player-total-score">Total Score:</p>
+            </div>
           </div>
+        </section>
+        <!-- Dice Game for Computer -->
+
+        <section>
+          <div>
+            <h2>Computer's Dice</h2>
+
+            <div class="dice-box">
+              <img
+                alt="A picture of a dice"
+                height="100"
+                id="computer-dice-1-img"
+                src="images/dice-1.png"
+                width="100"
+              />
+              <img
+                alt="A picture of a dice"
+                height="100"
+                id="computer-dice-2-img"
+                src="images/dice-1.png"
+                width="100"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <h2>Computer's Score</h2>
+
+            <div>
+              <p id="computer-score-this-rnd">Score This Round:</p>
+
+              <p id="computer-total-score">Total Score:</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- grid container for dice game ends -->
+    </main>
+
+    <div class="btn-container" id="btn-container">
+      <button id="btn-roll">Roll</button>
+      <button id="btn-new-game">New Game</button>
+      <button id="btn-rules">Rules</button>
+    </div>
+
+    <div>
+      <section id="rules-pop-up">
+        <h2 class="h2-pop-ups">Dice Game Rules</h2>
+        <button class="close-buttons" id="btn-close">&#10005;</button>
+
+        <p>
+          You get three rolls per game. The player who scores the highest at the
+          end wins!
+        </p>
+
+        <p>
+          If any of the two dice comes up as a 1 then the score for that round
+          is 0.
+        </p>
+
+        <ul>
+          <li>ex: if you roll a 6 and 1, you get a score of 0</li>
+        </ul>
+
+        <p>
+          If a pair of the same numbers are rolled then the score is the total
+          of the two dice multiplied by 2
+        </p>
+
+        <ul>
+          <li>ex: if you roll 5 and 5, you get a score of (5+5)*2 = 20</li>
+        </ul>
+
+        <p>
+          Any other combination of dice results in the total value of the two
+          dice.
+        </p>
+
+        <ul>
+          <li>ex: if you roll a 3 and 2, you get a score of 3+2 =5</li>
+        </ul>
+      </section>
+    </div>
+
+    <div>
+      <section id="end-game">
+        <h2 class="h2-pop-ups" id="end-game-winner"></h2>
+        <button class="close-buttons" id="btn-close-end-game">&#10005;</button>
+
+        <p id="player-final-score-display"></p>
+
+        <p id="computer-final-score-display"></p>
+
+        <div class="flex-countdown-animation">
+          <p>The game will reset in:</p>
+          <img
+            alt=""
+            class="countdown-animation"
+            height="50"
+            id="end-game-countdown-animation"
+            src="images/dice-5.png"
+            width="50"
+          />
         </div>
       </section>
     </div>
-    <!-- grid container for dice game ends -->
-  </main>
 
+    <footer>
+      <p>website developed by - johnathan bryce</p>
+      <a href="https://www.linkedin.com/in/johnathanbryce/" target="_blank"
+        ><img alt="LinkedIn's Company Logo" src="images/linkedin.png"
+      /></a>
+      <a href="https://github.com/johnathanbryce" target="_blank"
+        ><img alt="GitHub's Company Logo" src="images/github.png"
+      /></a>
+    </footer>
 
-  <div class="btn-container" id="btn-container">
-    <button id="btn-roll">Roll</button> <button id="btn-new-game">New Game</button> <button id="btn-rules">Rules</button>
-  </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-  <div>
-    <section id="rules-pop-up">
-      <h2 class="h2-pop-ups">Dice Game Rules</h2>
-      <button class="close-buttons" id="btn-close">&#10005;</button>
-
-      <p>You get three rolls per game. The player who scores the highest at the end wins!</p>
-
-
-      <p>If any of the two dice comes up as a 1 then the score for that round is 0.</p>
-
-
-      <ul>
-        <li>ex: if you roll a 6 and 1, you get a score of 0</li>
-      </ul>
-
-
-      <p>If a pair of the same numbers are rolled then the score is the total of the two dice multiplied by 2</p>
-
-
-      <ul>
-        <li>ex: if you roll 5 and 5, you get a score of (5+5)*2 = 20</li>
-      </ul>
-
-
-      <p>Any other combination of dice results in the total value of the two dice.</p>
-
-
-      <ul>
-        <li>ex: if you roll a 3 and 2, you get a score of 3+2 =5</li>
-      </ul>
-    </section>
-  </div>
-
-
-  <div>
-    <section id="end-game">
-      <h2 class="h2-pop-ups" id="end-game-winner">
-      </h2>
-      <button class="close-buttons" id="btn-close-end-game">&#10005;</button>
-
-      <p id="player-final-score-display">
-      </p>
-
-
-      <p id="computer-final-score-display">
-      </p>
-
-
-      <div class="flex-countdown-animation">
-      <p>The game will reset in:</p>
-      <img alt="" class="countdown-animation" height="50" id="end-game-countdown-animation" src="images/dice-5.png" width="50">
-      </div>
-    </section>
-  </div>
-
-
-  <footer>
-    <p>Johnathan Bryce</p>
-    <a href="https://www.linkedin.com/in/johnathanbryce/" target="_blank"><img alt="LinkedIn's Company Logo" src="images/linkedin.png"></a> <a href="https://github.com/johnathanbryce" target="_blank"><img alt="GitHub's Company Logo" src="images/github.png"></a>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js">
-  </script> 
-   
-  <script src="scripts/scripts.js">
-  </script>
-</body>
+    <script src="scripts/scripts.js"></script>
+  </body>
 </html>

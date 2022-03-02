@@ -1,323 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans:wght@300;400&display=swap');
 
 $main_background_color: #1f2125;
-$gamebox_background_color: #FFF8F0;
+$gamebox_background_color: #fff8f0;
 $text_theme_color: #05bcff;
 
-
-@mixin btn-close-style ($margin, $padding, $border-color){
-
-    padding: 10px;
-    margin: 5px;
-    border:2px solid $border-color;   
+@mixin btn-close-style($margin, $padding, $border-color) {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid $border-color;
 }
-
 
 body {
-    max-width: 1200px; 
-	margin: 0 auto !important; 
+  max-width: 1200px;
+  margin: 0 auto !important;
 }
 
-html, body {
-    box-sizing: border-box;
-    font-size: 1.0em;
-    min-height: 100vh;
-    height: 100%;
-    width: 100%; 
-    margin: 0;
-    padding: 2px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: $main_background_color;
-    display: flex;
-    flex-direction: column;  
+html,
+body {
+  box-sizing: border-box;
+  font-size: 1rem;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 2px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: $main_background_color;
+  display: flex;
+  flex-direction: column;
 }
-
 
 header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-header img{
-    margin: 30px;
-    width: 50px;
-    height: 50px;
+header img {
+  margin: 30px;
+  width: 50px;
+  height: 50px;
 }
 
-.title{
-    color: $text_theme_color;
-    text-decoration: none;
-    font-size: 1.5em;
+.title {
+  color: $text_theme_color;
+  text-decoration: none;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 2px white;
 }
 
 h2 {
-    //padding-left: 10px;
-    text-align: center;
-    color: #FF1B1C;
+  //padding-left: 10px;
+  text-align: center;
+  color: #ff1b1c;
 }
 
 h3 {
-    color: $text_theme_color;
-    padding-left: 15px;
-    
+  color: $text_theme_color;
+  padding-left: 15px;
 }
-
 
 section {
-
-    padding: 5px;
-    border: 2px solid #272727;
-    background-color: $gamebox_background_color;
-    margin-bottom: 25px;
-    margin: 15px;
-
-  
+  padding: 5px;
+  border: 2px solid #272727;
+  background-color: $gamebox_background_color;
+  margin-bottom: 25px;
+  margin: 15px;
 }
 
-section p {   
-    padding: 15px;
-    
+section p {
+  padding: 15px;
 }
 
-section img{
-  
-    padding-left: 50px;
-    padding-right: 50px;
-    
-    
+section img {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-.dice-box{
-    display: flex;
-    justify-content: center;
-   
+.dice-box {
+  display: flex;
+  justify-content: center;
 }
 
-
-
-.grid-container { 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    //grid-template-columns: 2.5fr 1.6fr;
-    grid-gap: 0.25em;
-    border: 1.5px solid $gamebox_background_color;
-    background-image: url("../images/dice-background3.jpeg");
-
-    
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 2rem;
+  margin-top: 1rem;
+  grid-gap: 0.25em;
+  border: 1.5px solid $gamebox_background_color;
+  background-image: url('../images/dice-background3.jpeg');
 }
 
 .btn-container {
-    display:flex;
-    justify-content: center;
-    margin-top: 40px; 
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 button {
-    /*
-    padding: 15px;
-    margin: 10px;
-    cursor: pointer;
-    */
-    @include btn-close-style(15px, 10px, $gamebox_background_color);
+  @include btn-close-style(15px, 10px, $gamebox_background_color);
 }
 
-button:hover{
-    background-color: $text_theme_color;
+button:hover {
+  background-color: $text_theme_color;
 }
 
-.close-buttons{
-    /*
-    padding: 10px;
-    margin: 5px;
-    */
-    @include btn-close-style(15px, 10px, $gamebox_background_color);
+.close-buttons {
+  @include btn-close-style(15px, 10px, $gamebox_background_color);
 }
 
+footer {
+  display: flex;
+  justify-content: center;
 
-footer{
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center; 
-    font-size: 0.85em;   
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 0.65em;
 }
 
-footer img{
-    height: 10px;
-    width: 10px;
-    padding: 5px;
-    margin: 5px;
-    background-color: $gamebox_background_color;
-    
+footer img {
+  height: 10px;
+  width: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: $gamebox_background_color;
 }
 
-.flex-countdown-animation{
-    display: flex;
-    flex-direction: row;
-    //justify-content: center;
+.flex-countdown-animation {
+  display: flex;
+  flex-direction: row;
 }
 
-.countdown-animation{
-    margin: 0px;
-    padding: 0px;
+.countdown-animation {
+  margin: 0px;
+  padding: 0px;
 }
-
-
 
 #rules-pop-up {
-    display: none;
-    background-color: #38AECC;
-    width: 500px; 
-    height: 450px; 
-    padding: 40px;
-    border:solid 1px black;
-    position:absolute;
-    top: 50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    -moz-box-shadow:    3px 3px 5px 6px $main_background_color;
-    -webkit-box-shadow: 3px 3px 5px 6px $main_background_color;
-    box-shadow:         3px 3px 5px 6px $main_background_color;
- 
+  display: none;
+  background-color: #38aecc;
+  width: 500px;
+  height: 500px;
+  padding: 40px;
+  border: solid 1px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-box-shadow: 3px 3px 5px 6px $main_background_color;
+  -webkit-box-shadow: 3px 3px 5px 6px $main_background_color;
+  box-shadow: 3px 3px 5px 6px $main_background_color;
 }
 
-#end-game{
-    display: none;
-    background-color: #38AECC;
-    width: 300px; 
-    height: 300px; 
-    padding: 40px;
-    border:solid 1px black;
-    position:absolute;
-    top: 45%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    -moz-box-shadow:    3px 3px 5px 6px $main_background_color;
-    -webkit-box-shadow: 3px 3px 5px 6px $main_background_color;
-    box-shadow:         3px 3px 5px 6px $main_background_color;
+#end-game {
+  display: none;
+  background-color: #38aecc;
+  width: 300px;
+  height: 300px;
+  padding: 40px;
+  border: solid 1px black;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-box-shadow: 3px 3px 5px 6px $main_background_color;
+  -webkit-box-shadow: 3px 3px 5px 6px $main_background_color;
+  box-shadow: 3px 3px 5px 6px $main_background_color;
 }
 
 .h2-pop-ups {
-    color: white;
+  color: white;
 }
 
-#rules-pop-up p{
-    padding: 5px;
-    padding-left: 12px;
-    margin-top: 30px;
+#rules-pop-up p {
+  padding: 5px;
+  padding-left: 12px;
+  margin-top: 30px;
 }
 
-
-#btn-close, #btn-close-end-game {
-    position:absolute;
-    top:5px;
-    right:5px;
-    cursor: pointer;
-    
+#btn-close,
+#btn-close-end-game {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
 
-    
+// MEDIA QUERIES
 
-
-@media screen and (min-width: 960px) {
-   
-  }
-  
-  @media screen and (max-width: 960px) and (min-width: 600px) {
-    
-    header img {
+@media screen and (max-width: 960px) and (min-width: 600px) {
+  header img {
     display: none;
-    }
-
-    .btn-container{
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        margin-top: 15px;
-        margin-right: 15px;
-        
-    }
-
-    button {
-        padding: 7px;
-        margin: 5px;
-    }
-
-    footer{
-        position: absolute;
-    }
-
-  }
-  
-  @media screen and (max-width: 600px) {
-    .grid-container { 
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-        grid-gap: 0.25em;
-        background-image: none;
-        border: 0px;
-        
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    #rules-pop-up{
-        width: 200px;
-        height: 600px;
-    }
-
-    #end-game{
-        width: 200px;
-        height: 400px;
-    }
-
-    .btn-container{
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        margin-top: 10px;
-        margin-right: 15px;      
-    }
-
-    button {
-        padding: 5px;
-        margin: 3px;
-    }
-
-    header img{
-        display: none;
-    }
-
-    footer{
-        position: relative;
-    }
-
-    
-
   }
 
+  .btn-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
 
-/*
-@media screen and (max-width: 350px) {
+  button {
+    padding: 7px;
+    margin: 5px;
+  }
 
-       h1 {
-           font-size: 0.75em;
-       }
+  footer {
+    position: absolute;
+  }
+}
 
-        .btn-container{
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            margin-top: 5px;
-            margin-right: 5px;
-            
-        }
-   
-    }
-*/
+@media screen and (max-width: 600px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 0.25em;
+    background-image: none;
+    border: 0px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #rules-pop-up {
+    width: 200px;
+    height: 550px;
+    font-size: 0.75rem;
+  }
+
+  #end-game {
+    width: 200px;
+    height: 400px;
+  }
+
+  .btn-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin-top: 10px;
+    margin-right: 15px;
+  }
+
+  button {
+    padding: 5px;
+    margin: 3px;
+  }
+
+  header img {
+    display: none;
+  }
+
+  footer {
+    position: relative;
+  }
+}
