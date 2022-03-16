@@ -241,7 +241,7 @@ footer img {
   }
   .btn-container {
     position: relative;
-    top: -60.5%;
+    bottom: 115%;
     /*
     position: absolute;
     top: 10px;
@@ -252,8 +252,9 @@ footer img {
     */
   }
   button {
-    padding: 5px;
-    margin: 3px;
+    padding: 3px;
+    margin-top: 8px;
+    font-size: 10px;
   }
   header img {
     display: none;
